@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LaxTech Motors | Stylish & Economical Electric Vehicles</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800;900&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<style>
+:root {
+  --black: #0a0a0a;
+  --white: #ffffff;
+  --off: #f7f8fa;
+  --light: #eef0f4;
+  --border: #e2e5ea;
+  --muted: #6b7280;
+  --dark: #1a1d23;
+  --blue: #1a6bff;
+  --blue-light: #e8f0ff;
+  --teal: #0ea5e9;
+  --grad: linear-gradient(135deg, #1a6bff 0%, #0ea5e9 100%);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Manrope',sans-serif;background:var(--white);color:var(--dark);overflow-x:hidden}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;width:100%;z-index:500;
+  background:rgba(10,10,10,0.96);
+  backdrop-filter:blur(20px);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 4%;height:64px;
+  border-bottom:1px solid rgba(255,255,255,0.07);
+}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo-img{width:36px;height:36px;object-fit:contain}
+.nav-logo-text{
+  font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:800;
+  color:#fff;letter-spacing:-0.5px;line-height:1
+}
+.nav-logo-text span{display:block;font-size:0.6rem;font-family:'Manrope',sans-serif;font-weight:500;letter-spacing:3px;color:#7b8fb0;text-transform:uppercase;margin-top:1px}
+.nav-links{display:flex;gap:0}
+.nav-link{
+  color:rgba(255,255,255,0.7);font-size:0.85rem;font-weight:500;
+  text-decoration:none;padding:0 1.1rem;height:64px;
+  display:flex;align-items:center;transition:color 0.2s;
+}
+.nav-link:hover{color:#fff}
+.nav-right{display:flex;align-items:center;gap:1rem}
+.nav-enquire{
+  background:var(--grad);color:#fff;border:none;
+  padding:0.55rem 1.3rem;font-size:0.85rem;font-weight:700;
+  border-radius:6px;cursor:pointer;transition:opacity 0.2s;
+  text-decoration:none;
+}
+.nav-enquire:hover{opacity:0.88}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{width:22px;height:2px;background:#fff;display:block;transition:all 0.3s}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  position:relative;overflow:hidden;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding-top:64px;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:url('laxtech_banner.png') center/cover no-repeat;
+}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom,rgba(5,10,20,0.72) 0%,rgba(5,10,20,0.55) 40%,rgba(5,10,20,0.85) 100%);
+}
+.hero-content{
+  position:relative;z-index:2;
+  text-align:center;padding:0 5%;max-width:800px;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(26,107,255,0.18);border:1px solid rgba(26,107,255,0.4);
+  color:#7eb8ff;padding:0.4rem 1rem;border-radius:100px;
+  font-size:0.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  margin-bottom:1.5rem;
+}
+.hero-badge::before{content:'';width:6px;height:6px;background:#1a6bff;border-radius:50%;box-shadow:0 0 8px #1a6bff}
+.hero h1{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(2.2rem,6vw,5rem);
+  font-weight:800;color:#fff;line-height:1.05;
+  margin-bottom:0.8rem;letter-spacing:-2px;
+}
+.hero h1 em{font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-sub{
+  font-size:clamp(1rem,2vw,1.2rem);
+  color:rgba(255,255,255,0.7);margin-bottom:0.5rem;font-weight:400;line-height:1.6
+}
+.hero-tagline{color:rgba(255,255,255,0.45);font-size:0.9rem;font-style:italic;margin-bottom:2.5rem}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn-prim{
+  background:var(--grad);color:#fff;border:none;
+  padding:0.9rem 2.2rem;font-size:1rem;font-weight:700;
+  border-radius:8px;cursor:pointer;transition:all 0.3s;
+  text-decoration:none;display:inline-flex;align-items:center;gap:8px;
+}
+.btn-prim:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(26,107,255,0.4)}
+.btn-ghost{
+  background:rgba(255,255,255,0.08);color:#fff;
+  border:1.5px solid rgba(255,255,255,0.25);
+  padding:0.9rem 2.2rem;font-size:1rem;font-weight:600;
+  border-radius:8px;cursor:pointer;transition:all 0.3s;
+  text-decoration:none;backdrop-filter:blur(10px);
+}
+.btn-ghost:hover{background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.5)}
+.hero-stats{
+  position:absolute;bottom:0;left:0;right:0;z-index:2;
+  display:flex;justify-content:center;gap:0;
+  background:rgba(10,10,10,0.85);backdrop-filter:blur(20px);
+  border-top:1px solid rgba(255,255,255,0.06);
+}
+.hstat{
+  padding:1.4rem 3rem;text-align:center;
+  border-right:1px solid rgba(255,255,255,0.06);
+  flex:1;max-width:220px;
+}
+.hstat:last-child{border-right:none}
+.hstat-num{font-family:'Syne',sans-serif;font-size:1.7rem;font-weight:800;color:#fff;line-height:1}
+.hstat-label{font-size:0.75rem;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:2px;margin-top:4px}
+
+/* ── SECTION COMMONS ── */
+.sec{padding:90px 4%}
+.sec-alt{background:var(--off)}
+.sec-dark{background:var(--dark);color:#fff}
+.sec-label{
+  font-size:0.75rem;font-weight:700;letter-spacing:4px;
+  text-transform:uppercase;color:var(--blue);margin-bottom:0.6rem;
+}
+.sec-dark .sec-label{color:#7eb8ff}
+.sec-title{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(1.8rem,3.5vw,2.8rem);
+  font-weight:800;line-height:1.1;margin-bottom:0.6rem;letter-spacing:-1px;
+}
+.sec-sub{color:var(--muted);font-size:1rem;line-height:1.7;max-width:560px}
+.sec-dark .sec-sub{color:#9ca3af}
+.sec-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:3rem;gap:2rem;flex-wrap:wrap}
+
+/* ── CATEGORY TABS ── */
+.cat-tabs{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:3rem}
+.cat-tab{
+  background:transparent;border:1.5px solid var(--border);
+  color:var(--muted);padding:0.5rem 1.2rem;
+  font-size:0.85rem;font-weight:600;border-radius:100px;
+  cursor:pointer;transition:all 0.25s;font-family:'Manrope',sans-serif;
+}
+.cat-tab.active,.cat-tab:hover{background:var(--blue);border-color:var(--blue);color:#fff}
+
+/* ── PRODUCT GRID ── */
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:2px;background:var(--border)}
+.product-card{
+  background:var(--white);
+  cursor:pointer;overflow:hidden;
+  transition:background 0.3s;
+  display:flex;flex-direction:column;
+}
+.sec-alt .product-card{background:var(--off)}
+.product-card:hover{background:#fff;box-shadow:0 8px 40px rgba(0,0,0,0.08)}
+.product-img-wrap{
+  width:100%;height:240px;overflow:hidden;
+  background:#f0f3f8;position:relative;
+  display:flex;align-items:center;justify-content:center;
+}
+.product-img-wrap img{
+  width:100%;height:100%;
+  object-fit:contain;
+  object-position:center;
+  transform:scale(1.1);
+  transition:transform 0.5s ease;
+}
+.product-card:hover .product-img-wrap img{transform:scale(1.18)}
+.product-cat-badge{
+  position:absolute;top:12px;left:12px;
+  background:var(--grad);color:#fff;
+  font-size:0.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  padding:0.3rem 0.7rem;border-radius:100px;
+}
+.product-body{padding:1.5rem 1.6rem 1.8rem;flex:1;display:flex;flex-direction:column}
+.product-name{
+  font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;
+  letter-spacing:-0.5px;margin-bottom:0.3rem;
+}
+.product-tagline{color:var(--muted);font-size:0.88rem;line-height:1.5;margin-bottom:1.2rem;flex:1}
+.product-specs{display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1.4rem}
+.spec-tag{
+  background:var(--blue-light);color:var(--blue);
+  font-size:0.73rem;font-weight:700;letter-spacing:1px;
+  padding:0.3rem 0.7rem;border-radius:100px;
+}
+.product-actions{display:flex;gap:0.7rem}
+.btn-enquire{
+  flex:1;background:var(--dark);color:#fff;border:none;
+  padding:0.75rem;font-size:0.85rem;font-weight:700;
+  border-radius:6px;cursor:pointer;transition:background 0.2s;
+  font-family:'Manrope',sans-serif;
+}
+.btn-enquire:hover{background:#333}
+.btn-specs{
+  background:transparent;color:var(--dark);border:1.5px solid var(--border);
+  padding:0.75rem 1rem;font-size:0.85rem;font-weight:600;
+  border-radius:6px;cursor:pointer;transition:all 0.2s;
+  font-family:'Manrope',sans-serif;
+}
+.btn-specs:hover{border-color:var(--blue);color:var(--blue)}
+
+/* ── SPEC MODAL ── */
+.modal-bg{
+  display:none;position:fixed;inset:0;z-index:800;
+  background:rgba(0,0,0,0.7);backdrop-filter:blur(8px);
+  align-items:center;justify-content:center;padding:1rem;
+}
+.modal-bg.open{display:flex}
+.modal{
+  background:#fff;border-radius:16px;overflow:hidden;
+  width:100%;max-width:860px;max-height:92vh;overflow-y:auto;
+  position:relative;
+}
+.modal-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.5rem 2rem;border-bottom:1px solid var(--border);
+  position:sticky;top:0;background:#fff;z-index:2;
+}
+.modal-title{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800}
+.modal-close{
+  width:36px;height:36px;border-radius:50%;border:1.5px solid var(--border);
+  background:none;font-size:1.1rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:all 0.2s;
+}
+.modal-close:hover{background:var(--dark);color:#fff;border-color:var(--dark)}
+
+/* ── FIXED MODAL IMAGE ── */
+.modal-body{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.modal-img{
+  background:#f0f3f8;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:460px;
+  overflow:hidden;
+  padding:0;
+}
+.modal-img img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center center;
+  display:block;
+  transform:scale(1.12);
+  transition:transform 0.4s ease;
+}
+.modal-img img:hover{transform:scale(1.18)}
+
+.modal-specs-wrap{padding:2rem;overflow-y:auto}
+.spec-group{margin-bottom:1.5rem}
+.spec-group-title{
+  font-size:0.72rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;
+  color:var(--blue);margin-bottom:0.8rem;
+  padding-bottom:0.5rem;border-bottom:2px solid var(--blue-light);
+}
+.spec-row{display:flex;justify-content:space-between;padding:0.4rem 0;font-size:0.88rem;border-bottom:1px solid #f0f2f5}
+.spec-row:last-child{border:none}
+.spec-key{color:var(--muted);font-weight:500}
+.spec-val{font-weight:700;text-align:right;max-width:55%}
+.modal-icons{
+  grid-column:1/-1;padding:1.5rem 2rem;
+  border-top:1px solid var(--border);
+  display:flex;flex-wrap:wrap;gap:1.5rem;
+}
+.micon{text-align:center;font-size:0.8rem;color:var(--muted)}
+.micon-sym{font-size:1.8rem;display:block;margin-bottom:0.3rem}
+
+/* ── WHY US ── */
+.why-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.5rem;margin-top:3rem}
+.why-card{
+  background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);
+  border-radius:12px;padding:2rem 1.5rem;
+  transition:background 0.3s,border-color 0.3s;
+}
+.why-card:hover{background:rgba(26,107,255,0.12);border-color:rgba(26,107,255,0.4)}
+.why-icon{font-size:2rem;margin-bottom:1rem;display:block}
+.why-title{font-weight:800;font-size:1rem;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:0.5rem}
+.why-desc{font-size:0.88rem;color:#9ca3af;line-height:1.65}
+
+/* ── FEATURES STRIP ── */
+.features-bar{
+  background:var(--dark);
+  display:flex;overflow-x:auto;
+  border-top:1px solid rgba(255,255,255,0.06);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+}
+.features-bar::-webkit-scrollbar{display:none}
+.fbar-item{
+  flex:1;min-width:160px;padding:1.8rem 1.5rem;
+  text-align:center;border-right:1px solid rgba(255,255,255,0.06);
+  white-space:nowrap;
+}
+.fbar-item:last-child{border-right:none}
+.fbar-icon{font-size:1.8rem;display:block;margin-bottom:0.5rem}
+.fbar-title{font-size:0.82rem;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:1px}
+.fbar-sub{font-size:0.75rem;color:#6b7280;margin-top:2px}
+
+/* ── ENQUIRY FORM ── */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;max-width:680px}
+.fg{display:flex;flex-direction:column;gap:6px}
+.fg label{font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+.fg input,.fg select,.fg textarea{
+  background:#fff;border:1.5px solid var(--border);
+  padding:0.85rem 1rem;font-size:0.95rem;font-family:'Manrope',sans-serif;
+  color:var(--dark);outline:none;border-radius:8px;
+  transition:border-color 0.2s;
+}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(26,107,255,0.1)}
+.fg select{appearance:none;cursor:pointer}
+.fg textarea{resize:vertical;min-height:90px}
+.fg.full{grid-column:1/-1}
+.form-submit{
+  grid-column:1/-1;
+  background:var(--grad);color:#fff;border:none;
+  padding:1rem;font-family:'Manrope',sans-serif;font-size:1rem;font-weight:700;
+  border-radius:8px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  transition:all 0.3s;
+}
+.form-submit:hover{transform:translateY(-1px);box-shadow:0 8px 25px rgba(26,107,255,0.35)}
+.form-submit:disabled{opacity:0.7;cursor:not-allowed;transform:none}
+
+/* ── TOAST NOTIFICATION ── */
+.toast{
+  position:fixed;bottom:2rem;right:2rem;z-index:9999;
+  padding:1rem 1.5rem;border-radius:10px;
+  font-size:0.92rem;font-weight:600;
+  display:flex;align-items:center;gap:10px;
+  box-shadow:0 8px 30px rgba(0,0,0,0.15);
+  transform:translateY(100px);opacity:0;
+  transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1);
+  max-width:360px;
+}
+.toast.show{transform:translateY(0);opacity:1}
+.toast.success{background:#16a34a;color:#fff}
+.toast.error{background:#dc2626;color:#fff}
+
+/* ── SERVICES GRID ── */
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.5rem;margin-top:3rem}
+.svc-card{
+  background:#fff;border:1.5px solid var(--border);
+  border-radius:12px;padding:2rem;
+  transition:all 0.3s;cursor:pointer;
+}
+.svc-card:hover{border-color:var(--blue);box-shadow:0 8px 30px rgba(26,107,255,0.1);transform:translateY(-3px)}
+.svc-icon{font-size:2.2rem;margin-bottom:1rem;display:block}
+.svc-name{font-weight:800;font-size:1rem;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:0.5rem}
+.svc-desc{font-size:0.88rem;color:var(--muted);line-height:1.65;margin-bottom:1rem}
+.svc-link{color:var(--blue);font-size:0.85rem;font-weight:700;text-decoration:none}
+.svc-link:hover{text-decoration:underline}
+
+/* ── TESTIMONIALS ── */
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;margin-top:3rem}
+.testi-card{
+  background:#fff;border:1.5px solid var(--border);
+  border-radius:12px;padding:2rem;
+  transition:border-color 0.3s;
+}
+.testi-card:hover{border-color:var(--blue)}
+.stars{color:#f59e0b;font-size:0.9rem;letter-spacing:2px;margin-bottom:1rem}
+.testi-text{font-size:0.93rem;color:var(--muted);line-height:1.7;margin-bottom:1.4rem;font-style:italic}
+.testi-author{display:flex;align-items:center;gap:0.8rem}
+.avatar{
+  width:44px;height:44px;border-radius:50%;
+  background:var(--grad);display:flex;align-items:center;justify-content:center;
+  color:#fff;font-weight:800;font-size:1rem;flex-shrink:0;
+}
+.author-name{font-weight:700;font-size:0.9rem}
+.author-loc{font-size:0.78rem;color:var(--muted)}
+
+/* ── FOOTER ── */
+footer{background:#07080c;color:#fff;padding:70px 4% 30px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,0.07);margin-bottom:2rem}
+.footer-brand-logo{display:flex;align-items:center;gap:10px;margin-bottom:1rem;text-decoration:none}
+.footer-brand-logo img{width:40px;height:40px;object-fit:contain}
+.footer-logo-text{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:#fff}
+.footer-logo-text span{color:var(--teal)}
+.footer-desc{color:#6b7280;font-size:0.88rem;line-height:1.7;margin-bottom:1.5rem;max-width:280px}
+.footer-contact{display:flex;flex-direction:column;gap:0.5rem}
+.footer-contact a{color:#6b7280;text-decoration:none;font-size:0.85rem;display:flex;align-items:center;gap:8px;transition:color 0.2s}
+.footer-contact a:hover{color:#fff}
+.fcol h4{font-size:0.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#4b5563;margin-bottom:1.1rem}
+.fcol ul{list-style:none;display:flex;flex-direction:column;gap:0.55rem}
+.fcol a{color:#6b7280;text-decoration:none;font-size:0.88rem;transition:color 0.2s}
+.fcol a:hover{color:#fff}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-bottom p{font-size:0.82rem;color:#4b5563}
+.socials{display:flex;gap:0.6rem}
+.soc{
+  width:36px;height:36px;border:1px solid rgba(255,255,255,0.1);
+  border-radius:8px;display:flex;align-items:center;justify-content:center;
+  color:#6b7280;font-size:0.8rem;text-decoration:none;
+  transition:all 0.2s;
+}
+.soc:hover{border-color:var(--blue);color:#fff;background:var(--blue)}
+
+/* ── SCROLL REVEAL ── */
+.reveal{opacity:0;transform:translateY(25px);transition:opacity 0.65s ease,transform 0.65s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  .modal-body{grid-template-columns:1fr}
+  .modal-img{min-height:320px;}
+  .modal-img img{transform:scale(1.12);}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .hero-stats{display:none}
+}
+@media(max-width:700px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .form-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .hero h1{letter-spacing:-1px}
+  .modal-img{min-height:260px;}
+  .modal-img img{transform:scale(1.12);}
+}
+</style>
+</head>
+<body>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <img class="nav-logo-img" src="laxtech_banner.png" alt="LaxTech" onerror="this.style.display='none'">
+    <div class="nav-logo-text">LaxTech Motors<span>Private Limited</span></div>
+  </a>
+  <div class="nav-links">
+    <a class="nav-link" href="#scooters">Scooters</a>
+    <a class="nav-link" href="#scooters">Motorcycles</a>
+    <a class="nav-link" href="#commercial">Commercial</a>
+    <a class="nav-link" href="#services">Services</a>
+    <a class="nav-link" href="#about">About</a>
+  </div>
+  <div class="nav-right">
+    <a href="#enquiry" class="nav-enquire">Enquire Now</a>
+    <div class="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">India's Electric Future</div>
+    <h1>Stylish and<br><em>Economical</em></h1>
+    <p class="hero-sub">Next-generation electric scooters & bikes for every Indian</p>
+    <p class="hero-tagline">Sustainability, Styled For You</p>
+    <div class="hero-btns">
+      <a href="#scooters" class="btn-prim">Explore Vehicles →</a>
+      <a href="#enquiry" class="btn-ghost">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-num">15+</div><div class="hstat-label">Models</div></div>
+    <div class="hstat"><div class="hstat-num">110kg</div><div class="hstat-label">Lightweight</div></div>
+    <div class="hstat"><div class="hstat-num">BLDC</div><div class="hstat-label">Motor Tech</div></div>
+    <div class="hstat"><div class="hstat-num">₹0</div><div class="hstat-label">Fuel Cost</div></div>
+    <div class="hstat"><div class="hstat-num">5★</div><div class="hstat-label">Rated</div></div>
+  </div>
+</section>
+
+<!-- FEATURES BAR -->
+<div class="features-bar">
+  <div class="fbar-item"><span class="fbar-icon">⚙️</span><div class="fbar-title">BLDC Motor</div><div class="fbar-sub">Highly Insulated</div></div>
+  <div class="fbar-item"><span class="fbar-icon">🔋</span><div class="fbar-title">Lead Acid / Lithium</div><div class="fbar-sub">Dual Battery Options</div></div>
+  <div class="fbar-item"><span class="fbar-icon">⚡</span><div class="fbar-title">Quick Charge</div><div class="fbar-sub">3.5–8 Hours</div></div>
+  <div class="fbar-item"><span class="fbar-icon">🛡️</span><div class="fbar-title">Anti-Theft Alarm</div><div class="fbar-sub">Standard Feature</div></div>
+  <div class="fbar-item"><span class="fbar-icon">💡</span><div class="fbar-title">LED Headlamp</div><div class="fbar-sub">Bright & Efficient</div></div>
+  <div class="fbar-item"><span class="fbar-icon">📱</span><div class="fbar-title">USB Charging</div><div class="fbar-sub">Onboard Port</div></div>
+  <div class="fbar-item"><span class="fbar-icon">🔁</span><div class="fbar-title">Reverse Gear</div><div class="fbar-sub">Easy Parking</div></div>
+</div>
+
+<!-- PRODUCTS -->
+<section class="sec" id="scooters">
+  <div class="sec-header reveal">
+    <div>
+      <div class="sec-label">Our Fleet</div>
+      <h2 class="sec-title">Complete Vehicle Range</h2>
+      <p class="sec-sub">From everyday city scooters to premium mopeds & commercial loaders — explore every model.</p>
+    </div>
+  </div>
+  <div class="cat-tabs reveal">
+    <button class="cat-tab active" onclick="filterCat('all',this)">All Vehicles</button>
+    <button class="cat-tab" onclick="filterCat('scooter',this)">Scooters</button>
+    <button class="cat-tab" onclick="filterCat('classic',this)">Classic / Retro</button>
+    <button class="cat-tab" onclick="filterCat('sport',this)">Sport</button>
+    <button class="cat-tab" onclick="filterCat('commercial',this)">Commercial</button>
+  </div>
+
+  <div class="products-grid" id="productsGrid">
+    <div class="product-card reveal" data-cat="classic">
+      <div class="product-img-wrap"><span class="product-cat-badge">Classic</span><img src="Scooty/Starling_plus.png" alt="Starling Plus"></div>
+      <div class="product-body">
+        <div class="product-name">Starling Plus</div>
+        <div class="product-tagline">Elegant retro design with modern electric power. BLDC motor, alloy wheels & dual disc brakes.</div>
+        <div class="product-specs"><span class="spec-tag">BLDC Motor</span><span class="spec-tag">Dual Disc</span><span class="spec-tag">12" Wheels</span><span class="spec-tag">110 kg</span></div>
+        <div class="product-actions">
+          <button class="btn-enquire" onclick="openEnquiry('Starling Plus')">Enquire Now</button>
+          <button class="btn-specs" onclick="openModal('starling_plus')">Specs ↗</button>
+        </div>
+      </div>
+    </div>
+    <div class="product-card reveal" data-cat="classic">
+      <div class="product-img-wrap"><span class="product-cat-badge">Classic</span><img src="Scooty\starling_pro..png" alt="Starling Pro"></div>
+      <div class="product-body">
+        <div class="product-name">Starling Pro</div>
+        <div class="product-tagline">Premium classic scooter with highly efficient BLDC motor, USB charger & cruise controller.</div>
+        <div class="product-specs"><span class="spec-tag">BLDC Motor</span><span class="spec-tag">Dual Disc</span><span class="spec-tag">12" Wheels</span><span class="spec-tag">110 kg</span></div>
+        <div class="product-actions">
+          <button class="btn-enquire" onclick="openEnquiry('Starling Pro')">Enquire Now</button>
+          <button class="btn-specs" onclick="openModal('starling_pro')">Specs ↗</button>
+        </div>
+      </div>
+    </div>
+    <div class="product-card reveal" data-cat="classic">
+      <div class="product-img-wrap"><span class="product-cat-badge">Retro</span><img src="Scooty\starling_round.png" alt="Starling Round"></div>
+      <div class="product-body">
+        <div class="product-name">Starling Round</div>
+        <div class="product-tagline">Vespa-inspired round headlamp design. Timeless retro style with electric efficiency.</div>
+        <div class="product-specs"><span class="spec-tag">Insulated BLDC</span><span class="spec-tag">Disc/Drum</span><span class="spec-tag">Lithium Option</span><span class="spec-tag">110 kg</span></div>
+        <div class="product-actions">
+          <button class="btn-enquire" onclick="openEnquiry('Starling Round')">Enquire Now</button>
+          <button class="btn-specs" onclick="openModal('starling_round')">Specs ↗</button>
+        </div>
+      </div>
+    </div>
+    <div class="product-card reveal" data-cat="classic">
+      <div class="product-img-wrap"><span class="product-cat-badge">Classic</span><img src="Scooty\starling_square.png" alt="Starling Square"></div>
+      <div class="product-body">
+        <div class="product-name">Starling Square</div>
+        <div class="product-tagline">Bold square-headlamp aesthetic meets smooth electric ride. Urban style redefined.</div>
+        <div class="product-specs"><span class="spec-tag">BLDC Motor</span><span class="spec-tag">Dual Disc</span><span class="spec-tag">10" Wheels</span><span class="spec-tag">110 kg</span></div>
+        <div class="product-actions">
+          <button class="btn-enquire" onclick="openEnquiry('Starling Square')">Enquire Now</button>
+          <button class="btn-specs" onclick="openModal('starling_square')">Specs ↗</button>
+        </div>
+      </div>
+    </div>
+    <div class="product-card reveal" data-cat="sport">
+      <div class="product-img-wrap"><span class="product-cat-badge">Sport</span><img src="Scooty\eagle.png" alt="Eagle"></div>
+      <div class="product-body">
+        <div class="product-name">Eagle</div>
+        <div class="product-tagline">Sport-tuned electric scooter with aggressive design, green accents & highly efficient BLDC motor.</div>
+        <div class="product-specs"><span class="spec-tag">Efficient BLDC</span><span class="spec-tag">Dual Disc</span><span class="spec-tag">12" Wheels</span><span class="spec-tag">110 kg</span></div>
+        <div class="product-actions">
+          <button class="btn-enquire" onclick="openEnquiry('Eagle')">Enquire Now</button>
+          <button class="btn-specs" onclick="openModal('eagle')">Specs ↗</button>
+        </div>
+      </div>
+    </div>
+    <div class="product-card reveal" data-cat="classic">
+      <div class="product-img-wrap"><span class="product-cat-badge">Premium</span><img src="Scooty\dash_plus.png" alt="Dash+"></div>
+      <div class="product-body">
+        <div class="product-name">Dash+</div>
+        <div class="product-tagline">Premium electric scooter with unique grid-style headlamp, tubeless tyres & dual tube suspension.</div>
+        <div class="product-specs"><span class="spec-tag">BLDC Motor</span><span class="spec-tag">Disc/Disc</span><span class="spec-tag">Tubeless</span><span class="spec-tag">110 kg</span></div>
+        <div class="product-actions">
+          <button class="btn-enquire" onclick="openEnquiry('Dash+')">Enquire Now</button>
+          <button class="btn-specs" onclick="openModal('dash_plus')">Specs ↗</button>
+        </div>
+      </div>
+    </div>
+    <div class="product-card reveal" data-cat="scooter">
+      <div class="product-img-wrap"><span class="product-cat-badge">Modern</span><img src="Scooty\tezo.png" alt="Tezo"></div>
+      <div class="product-body">
+        <div class="product-name">Tezo</div>
+        <div class="product-tagline">Contemporary angular design with a large-body frame, wide floorboard & practical everyday comfort.</div>
+        <div class="product-specs"><span class="spec-tag">BLDC Motor</span><span class="spec-tag">Dual Disc</span><span class="spec-tag">Anti-Theft</span><span class="spec-tag">USB Port</span></div>
+        <div class="product-actions">
+          <button class="btn-enquire" onclick="openEnquiry('Tezo')">Enquire Now</button>
+          <button class="btn-specs" onclick="openModal('tezo')">Specs ↗</button>
+        </div>
+      </div>
+    </div>
+    <div class="product-card reveal" data-cat="scooter">
+      <div class="product-img-wrap"><span class="product-cat-badge">Popular</span><img src="Scooty\drake2.png" alt="Drake"></div>
+      <div class="product-body">
+        <div class="product-name">Drake</div>
+        <div class="product-tagline">Versatile commuter scooter with "66" sport branding, hydraulic suspension & tubeless tyres.</div>
+        <div class="product-specs"><span class="spec-tag">Insulated BLDC</span><span class="spec-tag">Disc/Drum</span><span class="spec-tag">Tubeless</span><span class="spec-tag">10" Wheels</span></div>
+        <div class="product-actions">
+          <button class="btn-enquire" onclick="openEnquiry('Drake')">Enquire Now</button>
+          <button class="btn-specs" onclick="openModal('drake')">Specs ↗</button>
+        </div>
+      </div>
+    </div>
+    <div class="product-card reveal" data-cat="scooter">
+      <div class="product-img-wrap"><span class="product-cat-badge">Everyday</span><img src="Scooty\skylark.png" alt="Skylark"></div>
+      <div class="product-body">
+        <div class="product-name">Skylark</div>
+        <div class="product-tagline">Sleek everyday commuter with wide front panel, lightning bolt branding & dual disc system.</div>
+        <div class="product-specs"><span class="spec-tag">Insulated BLDC</span><span class="spec-tag">Dual Disc</span><span class="spec-tag">12" Wheels</span><span class="spec-tag">110 kg</span></div>
+        <div class="product-actions">
+          <button class="btn-enquire" onclick="openEnquiry('Skylark')">Enquire Now</button>
+          <button class="btn-specs" onclick="openModal('skylark')">Specs ↗</button>
+        </div>
+      </div>
+    </div>
+    <div class="product-card reveal" data-cat="scooter">
+      <div class="product-img-wrap"><span class="product-cat-badge">Super</span><img src="Scooty\skylark_super.png" alt="Skylark Super"></div>
+      <div class="product-body">
+        <div class="product-name">Skylark Super</div>
+        <div class="product-tagline">Upgraded Skylark with sporty Y-stripe graphics, improved suspension & dual disc brake system.</div>
+        <div class="product-specs"><span class="spec-tag">Insulated BLDC</span><span class="spec-tag">Dual Disc</span><span class="spec-tag">10" Wheels</span><span class="spec-tag">110 kg</span></div>
+        <div class="product-actions">
+          <button class="btn-enquire" onclick="openEnquiry('Skylark Super')">Enquire Now</button>
+          <button class="btn-specs" onclick="openModal('skylark_super')">Specs ↗</button>
+        </div>
+      </div>
+    </div>
+    <div class="product-card reveal" data-cat="scooter">
+      <div class="product-img-wrap"><span class="product-cat-badge">Urban</span><img src="Scooty\swallow.png" alt="Swallow"></div>
+      <div class="product-body">
+        <div class="product-name">Swallow</div>
+        <div class="product-tagline">Sharp angular design with gold accent stripes, front hydraulic telescopic suspension & efficient BLDC.</div>
+        <div class="product-specs"><span class="spec-tag">Insulated BLDC</span><span class="spec-tag">Dual Disc</span><span class="spec-tag">10" Wheels</span><span class="spec-tag">110 kg</span></div>
+        <div class="product-actions">
+          <button class="btn-enquire" onclick="openEnquiry('Swallow')">Enquire Now</button>
+          <button class="btn-specs" onclick="openModal('swallow')">Specs ↗</button>
+        </div>
+      </div>
+    </div>
+    <div class="product-card reveal" data-cat="sport">
+      <div class="product-img-wrap"><span class="product-cat-badge">Sport</span><img src="Scooty\canary..png" alt="Canary"></div>
+      <div class="product-body">
+        <div class="product-name">Canary</div>
+        <div class="product-tagline">Bold sport commuter with "66" decal, chrome trim highlights & powerful dual disc braking system.</div>
+        <div class="product-specs"><span class="spec-tag">Insulated BLDC</span><span class="spec-tag">Dual Disc</span><span class="spec-tag">10" Wheels</span><span class="spec-tag">110 kg</span></div>
+        <div class="product-actions">
+          <button class="btn-enquire" onclick="openEnquiry('Canary')">Enquire Now</button>
+          <button class="btn-specs" onclick="openModal('canary')">Specs ↗</button>
+        </div>
+      </div>
+    </div>
+    <div class="product-card reveal" data-cat="scooter">
+      <div class="product-img-wrap"><span class="product-cat-badge">Compact</span><img src="Scooty\mini.png" alt="Mini"></div>
+      <div class="product-body">
+        <div class="product-name">Mini</div>
+        <div class="product-tagline">Compact city scooter for easy parking and nimble urban navigation. Light, efficient, fun.</div>
+        <div class="product-specs"><span class="spec-tag">Insulated BLDC</span><span class="spec-tag">Dual Disc</span><span class="spec-tag">10" Wheels</span><span class="spec-tag">110 kg</span></div>
+        <div class="product-actions">
+          <button class="btn-enquire" onclick="openEnquiry('Mini')">Enquire Now</button>
+          <button class="btn-specs" onclick="openModal('mini')">Specs ↗</button>
+        </div>
+      </div>
+    </div>
+    <div class="product-card reveal" data-cat="commercial" id="commercial">
+      <div class="product-img-wrap"><span class="product-cat-badge">Commercial</span><img src="Scooty\loader1.png" alt="Loader"></div>
+      <div class="product-body">
+        <div class="product-name">Loader</div>
+        <div class="product-tagline">Heavy-duty 3-wheeled electric cargo loader with front basket, flat-bed rear platform & 130 kg capacity.</div>
+        <div class="product-specs"><span class="spec-tag">Insulated BLDC</span><span class="spec-tag">Disc/Disc/Disc</span><span class="spec-tag">Tubeless</span><span class="spec-tag">130 kg</span></div>
+        <div class="product-actions">
+          <button class="btn-enquire" onclick="openEnquiry('Loader')">Enquire Now</button>
+          <button class="btn-specs" onclick="openModal('loader')">Specs ↗</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY LAXTECH -->
+<section class="sec sec-dark" id="about">
+  <div class="reveal">
+    <div class="sec-label">Why Choose Us</div>
+    <h2 class="sec-title">Built for Bharat</h2>
+    <p class="sec-sub">Every LaxTech vehicle is engineered for Indian roads — tough, economical and zero-emission.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:2rem;margin-top:1.5rem">
+      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:1rem 1.5rem;min-width:220px">
+        <div style="font-size:0.72rem;letter-spacing:3px;text-transform:uppercase;color:#7eb8ff;margin-bottom:0.4rem">CIN</div>
+        <div style="font-weight:700;font-size:0.95rem;color:#fff">U45401RJ2026PTC111719</div>
+   <!-- </div>
+      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:1rem 1.5rem;min-width:220px">
+        <div style="font-size:0.72rem;letter-spacing:3px;text-transform:uppercase;color:#7eb8ff;margin-bottom:0.4rem">Incorporated</div>
+        <div style="font-weight:700;font-size:0.95rem;color:#fff">17 February 2026 · ROC Jaipur</div>
+      </div> -->
+      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:1rem 1.5rem;min-width:220px">
+        <div style="font-size:0.72rem;letter-spacing:3px;text-transform:uppercase;color:#7eb8ff;margin-bottom:0.4rem">Directors</div>
+        <div style="font-weight:700;font-size:0.95rem;color:#fff">Virendra Panchal &amp; Girish Patidar</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:1rem 1.5rem;min-width:260px">
+        <div style="font-size:0.72rem;letter-spacing:3px;text-transform:uppercase;color:#7eb8ff;margin-bottom:0.4rem">Registered Office</div>
+        <div style="font-weight:700;font-size:0.95rem;color:#fff">Vpo Bodigama Bada, Dungarpur, RJ – 314038</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:1rem 1.5rem;min-width:220px">
+        <div style="font-size:0.72rem;letter-spacing:3px;text-transform:uppercase;color:#7eb8ff;margin-bottom:0.4rem">Status</div>
+        <div style="font-weight:700;font-size:0.95rem;color:#22c55e">● Active</div>
+      </div>
+    </div>
+  </div>
+  <div class="why-grid">
+    <div class="why-card reveal"><span class="why-icon">⚡</span><div class="why-title">Zero Fuel Cost</div><div class="why-desc">Electric power means no petrol bills. Run thousands of km for a fraction of the cost.</div></div>
+    <div class="why-card reveal"><span class="why-icon">🛡️</span><div class="why-title">Anti-Theft Standard</div><div class="why-desc">Every model comes with anti-theft alarm, central locking and side stand sensor as standard.</div></div>
+    <div class="why-card reveal"><span class="why-icon">🔋</span><div class="why-title">Dual Battery Options</div><div class="why-desc">Choose between Lead Acid for economy or Lithium for faster charging and longer life.</div></div>
+    <div class="why-card reveal"><span class="why-icon">🔧</span><div class="why-title">Certified Service</div><div class="why-desc">Factory-trained technicians and genuine spare parts at all authorised service centres.</div></div>
+    <div class="why-card reveal"><span class="why-icon">🌱</span><div class="why-title">Eco Friendly</div><div class="why-desc">Zero direct emissions. Ride green, breathe clean. Sustainability styled for you.</div></div>
+    <div class="why-card reveal"><span class="why-icon">🏆</span><div class="why-title">15+ Models</div><div class="why-desc">India's widest range of electric two- and three-wheelers — one for every need and budget.</div></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="sec sec-alt" id="services">
+  <div class="reveal">
+    <div class="sec-label">After-Sales</div>
+    <h2 class="sec-title">Complete Service Support</h2>
+    <p class="sec-sub">From purchase to maintenance — LaxTech Motors has you covered every kilometre of the way.</p>
+  </div>
+  <div class="svc-grid">
+    <div class="svc-card reveal"><span class="svc-icon">🔋</span><div class="svc-name">Battery Service</div><div class="svc-desc">Lead acid & lithium battery diagnostics, replacement & optimisation by certified technicians.</div><a href="#enquiry" class="svc-link">Get in touch →</a></div>
+    <div class="svc-card reveal"><span class="svc-icon">⚙️</span><div class="svc-name">Annual Maintenance</div><div class="svc-desc">Comprehensive AMC plans covering all electrical and mechanical components. Pickup available.</div><a href="#enquiry" class="svc-link">Get in touch →</a></div>
+    <div class="svc-card reveal"><span class="svc-icon">💡</span><div class="svc-name">Electrical Repair</div><div class="svc-desc">BLDC motor servicing, controller repair, wiring diagnostics and headlamp replacements.</div><a href="#enquiry" class="svc-link">Get in touch →</a></div>
+    <div class="svc-card reveal"><span class="svc-icon">🔄</span><div class="svc-name">Spare Parts</div><div class="svc-desc">100% genuine OEM spare parts for all LaxTech models. Fast supply & installation.</div><a href="#enquiry" class="svc-link">Get in touch →</a></div>
+    <div class="svc-card reveal"><span class="svc-icon">💳</span><div class="svc-name">Easy Finance</div><div class="svc-desc">Flexible EMI options, low down payment and instant approval from leading banks & NBFCs.</div><a href="#enquiry" class="svc-link">Get in touch →</a></div>
+    <div class="svc-card reveal"><span class="svc-icon">🚨</span><div class="svc-name">Roadside Support</div><div class="svc-desc">24×7 emergency helpline for breakdowns, towing and on-site repairs across service zones.</div><a href="#enquiry" class="svc-link">Get in touch →</a></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="sec">
+  <div class="reveal">
+    <div class="sec-label">Happy Customers</div>
+    <h2 class="sec-title">What Our Riders Say</h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card reveal">
+      <div class="stars">★★★★★</div>
+      <div class="testi-text">"Bought the Starling Plus last month. The design is gorgeous and the running cost is almost nothing compared to my old petrol scooter. Highly recommend!"</div>
+      <div class="testi-author"><div class="avatar">R</div><div><div class="author-name">Rajesh Verma</div><div class="author-loc">Jaipur, Rajasthan</div></div></div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="stars">★★★★★</div>
+      <div class="testi-text">"The Eagle looks absolutely stunning in blue. The anti-theft alarm and reverse gear are super useful daily features. LaxTech service center is also very responsive."</div>
+      <div class="testi-author"><div class="avatar">P</div><div><div class="author-name">Priya Singh</div><div class="author-loc">Delhi, NCR</div></div></div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="stars">★★★★☆</div>
+      <div class="testi-text">"Using the Loader for my business delivery. It handles weight beautifully and charging is very affordable. The flat bed is perfect for my daily goods transport."</div>
+      <div class="testi-author"><div class="avatar">M</div><div><div class="author-name">Manoj Patel</div><div class="author-loc">Ahmedabad, Gujarat</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ENQUIRY FORM -->
+<section class="sec sec-alt" id="enquiry">
+  <div class="reveal" style="margin-bottom:3rem">
+    <div class="sec-label">Get In Touch</div>
+    <h2 class="sec-title">Enquire About a Vehicle</h2>
+    <p class="sec-sub">Fill in your details and our team will reach out within 24 hours with pricing, availability and dealership info.</p>
+  </div>
+  <div class="form-grid">
+    <div class="fg reveal"><label>Full Name *</label><input type="text" placeholder="Your full name" id="f_name"></div>
+    <div class="fg reveal"><label>Phone Number *</label><input type="tel" placeholder="+91 XXXXX XXXXX" id="f_phone"></div>
+    <div class="fg reveal"><label>Email Address</label><input type="email" placeholder="your@email.com" id="f_email"></div>
+    <div class="fg reveal"><label>City *</label><input type="text" placeholder="Your city" id="f_city"></div>
+    <div class="fg reveal">
+      <label>Vehicle Interest</label>
+      <select id="f_vehicle">
+        <option value="">— Select a Model —</option>
+        <option>Starling Plus</option><option>Starling Pro</option><option>Starling Round</option>
+        <option>Starling Square</option><option>Eagle</option><option>Dash+</option>
+        <option>Tezo</option><option>Drake</option><option>Skylark</option>
+        <option>Skylark Super</option><option>Swallow</option><option>Canary</option>
+        <option>Mini</option><option>Loader</option>
+      </select>
+    </div>
+    <div class="fg reveal">
+      <label>Enquiry Type</label>
+      <select id="f_type">
+        <option>New Purchase</option>
+        <option>Service / Repair</option>
+        <option>Spare Parts</option>
+        <option>Dealership / Franchise</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <div class="fg full reveal"><label>Message (Optional)</label><textarea placeholder="Tell us more about your requirements..." id="f_message"></textarea></div>
+    <button class="form-submit reveal" id="submitBtn" onclick="submitForm()">Send Enquiry →</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <a class="footer-brand-logo" href="#">
+        <div class="footer-logo-text">LaxTech<span> Motors</span></div>
+      </a>
+      <p class="footer-desc">LaxTech Motors Private Limited — India's emerging electric vehicle brand bringing stylish, economical and eco-friendly mobility to every Indian. Incorporated 17 Feb 2026 · CIN: U45401RJ2026PTC111719</p>
+      <div class="footer-contact">
+        <a href="https://maps.google.com/?q=Vpo+Bodigama+Bada+Dungarpur+Rajasthan" target="_blank">📍 Vpo Bodigama Bada, Teh. Sabla, Dungarpur, Rajasthan – 314038</a>
+        <a href="#">📞 Contact your nearest dealer</a>
+        <a href="mailto:LaxTechmotors@gmail.com">✉️ LaxTechmotors@gmail.com</a>
+        <a href="#">⏰ Mon – Sat: 9:00 AM – 7:00 PM</a>
+        <a href="#">🏛️ Directors: Virendra Panchal &amp; Girish Patidar</a>
+      </div>
+    </div>
+    <div class="fcol">
+      <h4>Scooters</h4>
+      <ul>
+        <li><a href="#">Starling Plus</a></li><li><a href="#">Starling Pro</a></li>
+        <li><a href="#">Starling Round</a></li><li><a href="#">Starling Square</a></li>
+        <li><a href="#">Eagle</a></li><li><a href="#">Dash+</a></li>
+      </ul>
+    </div>
+    <div class="fcol">
+      <h4>More Models</h4>
+      <ul>
+        <li><a href="#">Tezo</a></li><li><a href="#">Drake</a></li>
+        <li><a href="#">Skylark</a></li><li><a href="#">Skylark Super</a></li>
+        <li><a href="#">Swallow</a></li><li><a href="#">Canary</a></li>
+        <li><a href="#">Mini</a></li><li><a href="#">Loader</a></li>
+      </ul>
+    </div>
+    <div class="fcol">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">About Us</a></li><li><a href="#">Services</a></li>
+        <li><a href="#">Find Dealer</a></li><li><a href="#">Careers</a></li>
+        <li><a href="#">Franchise Enquiry</a></li><li><a href="#enquiry">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 LaxTech Motors Private Limited. All rights reserved. | CIN: U45401RJ2026PTC111719 | Privacy Policy | Terms of Use
+      <br>
+    <span class="dev-credit">
+      Developed by 
+      <a target="_blank" style="color:inherit;text-decoration:none;">
+        Siddharth Vaishnav
+      </a>
+    </span>
+    </p>
+    <div class="socials">
+      <a href="#" class="soc">f</a><a href="#" class="soc">in</a>
+      <a href="#" class="soc">▶</a><a href="#" class="soc">ig</a>
+    </div>
+  </div>
+</footer>
+
+<!-- SPEC MODAL -->
+<div class="modal-bg" id="specModal" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title" id="modalTitle">Specs</div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+// ── EMAILJS INIT ──
+// SETUP INSTRUCTIONS:
+// 1. Go to https://emailjs.com and create a FREE account
+// 2. Add an Email Service → connect your Gmail (LaxTechmotors@gmail.com)
+// 3. Create an Email Template with these variables:
+//    {{from_name}}, {{from_phone}}, {{from_email}}, {{from_city}},
+//    {{vehicle}}, {{enquiry_type}}, {{message}}, {{to_email}}
+// 4. Replace the 3 values below with your actual IDs from EmailJS dashboard
+const EMAILJS_PUBLIC_KEY  = 'pJ8SGJSQo9UHMqpRz';    // Account → API Keys
+const EMAILJS_SERVICE_ID  = 'service_gnsy4uc';    // Email Services → Service ID
+const EMAILJS_TEMPLATE_ID = 'template_4xodqk6';   // Email Templates → Template ID
+
+emailjs.init(EMAILJS_PUBLIC_KEY);
+
+// ── TOAST ──
+function showToast(msg, type) {
+  const t = document.getElementById('toast');
+  t.textContent = (type === 'success' ? '✅ ' : '❌ ') + msg;
+  t.className = 'toast ' + type + ' show';
+  setTimeout(() => t.className = 'toast', 4500);
+}
+
+// ── SCROLL REVEAL ──
+const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible') }), {threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// ── CATEGORY FILTER ──
+function filterCat(cat, btn) {
+  document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.product-card').forEach(card => {
+    card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
+  });
+}
+
+// ── OPEN ENQUIRY PRE-FILLED ──
+function openEnquiry(model) {
+  document.getElementById('f_vehicle').value = model;
+  document.getElementById('enquiry').scrollIntoView({behavior:'smooth'});
+}
+
+// ── SPEC DATA ──
+const specData = {
+  starling_plus: {
+    name: 'Starling Plus', img: 'Scooty/starling_pro..png',
+    electrical: { Speedometer:'Digital Colour', Battery:'Lead Acid / Lithium', Charger:'Micro Charger with Auto Cutoff', 'Charging Time':'Lead A: 6.5 Hrs, Lithium: 3.5 Hrs', Headlight:'LED Headlamp' },
+    features: { 'Anti-Theft Alarm':'✓', 'Central Locking':'✓', 'Parking Switch':'✓', 'Reverse Gear':'✓', 'Side Stand Sensor':'✓', 'Cruise Controller':'✓' },
+    motor: { Motor:'Highly Insulated BLDC Motor', Gradient:'15°', Frame:'High Strength Tubular Frame', Suspension:'Front Hydraulic Telescopic, Double Shocker Dual Tube', 'Brake System':'Dual Disc', 'Tyre Size':'Front & Rear 12 Inch', Weight:'110 kg' }
+  },
+  starling_pro: {
+    name: 'Starling Pro', img: 'starling_pro.png',
+    electrical: { Speedometer:'Digital Colour', Battery:'Lead Acid / Lithium', Charger:'Micro Charger with Auto Cutoff', 'Charging Time':'Lead 6–6 Hrs, Lithium: 3.5 Hrs', Headlight:'LED Headlamp' },
+    features: { 'Anti-Theft Alarm':'✓', 'Central Locking':'✓', 'Parking Switch':'✓', 'Reverse Gear':'✓', 'USB Charger':'✓', 'Cruise Controller':'✓' },
+    motor: { Motor:'Highly Efficient BLDC Motor', Gradient:'15°', Frame:'High Strength Tubular Frame', Suspension:'Front Hydraulic Telescopic with Double Shocker & Dual Tube', 'Brake System':'Dual Disc', 'Tyre Size':'Front & Rear 12 Inch', Weight:'110 kg' }
+  },
+  starling_round: {
+    name: 'Starling Round', img: 'Scooty/starling_round.png',
+    electrical: { Speedometer:'Digital Colour', Battery:'Lead Acid / Lithium', Charger:'Micro Charger with Auto Cutoff', 'Charging Time':'Lead: 6–8 Hrs, Lithium: 3–5 Hrs', Headlight:'LED Headlamp' },
+    features: { 'Anti-Theft Alarm':'✓', 'Central Locking':'✓', 'Parking Switch':'✓', 'Reverse Gear':'✓', 'Side Stand Sensor':'✓', 'Cruise Controller':'✓' },
+    motor: { Motor:'Highly Insulated BLDC Motor', Gradient:'15°', Chassis:'High Strength Tubular Frame', Suspension:'Front Hydraulic, Double Shocker with Dual Tube', 'Brake System':'Disc / Drum', 'Tyre Size':'Front 100 / Rear 110 Inch', Weight:'110 kg' }
+  },
+  starling_square: {
+    name: 'Starling Square', img: 'Scooty/starling_square.png',
+    electrical: { Speedometer:'Digital Colour', Battery:'Lead Acid / Lithium', Charger:'Micro Charger with Auto Cutoff', 'Charging Time':'Lead 6–5 Hrs, Lithium: 3.5 Hrs', Headlight:'LED Headlamp' },
+    features: { 'Anti-Theft Alarm':'✓', 'Central Locking':'✓', 'Parking Switch':'✓', 'Reverse Gear':'✓', 'USB Charger':'✓', 'Cruise Controller':'✓' },
+    motor: { Motor:'Highly Insulated BLDC Motor', Gradient:'15°', Frame:'High Strength Tubular Frame', Suspension:'Front Hydraulic Telescopic Rear, Double Shocker Dual Tube', 'Brake System':'Dual Disc', 'Tyre Size':'Front & Rear 10 Inch', Weight:'110 kg' }
+  },
+  eagle: {
+    name: 'Eagle', img: 'Scooty/eagle.png',
+    electrical: { Speedometer:'Digital Colour', Battery:'Lead Acid / Lithium', Charger:'Micro Charger with Auto Cutoff', 'Charging Time':'Lead Acid: 6 Hrs, Lithium: 3–5 Hrs', Headlight:'LED Headlamp' },
+    features: { 'Anti-Theft Alarm':'✓', 'Central Locking':'✓', 'Parking Switch':'✓', 'Reverse Gear':'✓', 'Side Stand Sensor':'✓', 'Cruise Controller':'✓' },
+    motor: { Motor:'Highly Efficient BLDC Motor', Gradient:'15°', Frame:'High Strength Tubular Frame', Suspension:'Front Hydraulic Telescope, Double Shocker Dual Tube', 'Brake System':'Dual Disc', 'Tyre Size':'Front & Rear 12 Inch', Weight:'110 kg' }
+  },
+  dash_plus: {
+    name: 'Dash+', img: 'Scooty/dash_plus.png',
+    electrical: { Speedometer:'Digital Colour', Battery:'Lead Acid / Lithium', Charger:'Micro Charger with Auto Cutoff', 'Charging Time':'Lead: 6–8 Hrs, Lithium: 3–5 Hrs', Headlight:'LED Headlamp' },
+    features: { 'Anti-Theft Alarm':'✓', 'Central Locking':'✓', 'Parking Switch':'✓', 'Reverse Gear':'✓', 'Side Stand Sensor':'✓', 'Cruise Controller':'✓' },
+    motor: { Motor:'Highly Insulated BLDC Motor', Gradient:'15°', Chassis:'High Strength Tubular Frame', Suspension:'Front Hydraulic Rear, Dual Tube Shocker', 'Brake System':'Disc / Disc', Tyres:'Tubeless', 'Tyre Size':'Rear 12 Inch', Weight:'110 kg' }
+  },
+  tezo: {
+    name: 'Tezo', img: 'Scooty/tezo.png',
+    electrical: { Speedometer:'Digital Colour', Battery:'Lead Acid / Lithium', Charger:'Micro Charger with Auto Cutoff', 'Charging Time':'Standard Lithium Options', Headlight:'LED Headlamp' },
+    features: { 'Anti-Theft Alarm':'✓', 'Central Locking':'✓', 'Parking Switch':'✓', 'Reverse Gear':'✓', 'Side Stand Sensor':'✓', 'Cruise Controller':'✓' },
+    motor: { Motor:'BLDC Motor', Frame:'High Strength Tubular Frame', Suspension:'Front Hydraulic, Telescopic Rear', 'Brake System':'Dual Disc', 'Alloy Wheels':'Yes', 'USB Port':'Yes', 'Digital Meter':'Yes' }
+  },
+  drake: {
+    name: 'Drake', img: 'Scooty/drake2.png',
+    electrical: { Speedometer:'Digital Colour', Battery:'Lead Acid / Lithium', Charger:'Micro Charger with Auto Cutoff', 'Charging Time':'Lead: 6–8 Hrs, Lithium: 3–5 Hrs', Headlight:'LED Headlamp' },
+    features: { 'Anti-Theft Alarm':'✓', 'Central Locking':'✓', 'Parking Switch':'✓', 'Reverse Gear':'✓', 'USB Charger':'✓', 'Cruise Controller':'✓' },
+    motor: { Motor:'Highly Insulated BLDC Motor', Gradient:'15°', Frame:'High Strength Tubular Frame', Suspension:'Front Hydraulic Telescopic with Dual Tube', 'Brake System':'Dual Disc / Drum', Tyres:'Tubeless', 'Tyre Size':'Front & Rear 10 Inch', Weight:'110 kg' }
+  },
+  skylark: {
+    name: 'Skylark', img: 'Scooty/skylark.png',
+    electrical: { Speedometer:'Digital Colour', Battery:'Lead Acid / Lithium', Charger:'Micro Charger with Auto Cutoff', 'Charging Time':'Lead Acid: 6 Hrs, Lithium: 3–5 Hrs', Headlight:'LED Headlamp' },
+    features: { 'Anti-Theft Alarm':'✓', 'Central Locking':'✓', 'Parking Switch':'✓', 'Reverse Gear':'✓', 'Side Stand Sensor':'✓', 'Cruise Controller':'✓' },
+    motor: { Motor:'Highly Insulated BLDC Motor', Gradient:'15°', Frame:'High Strength Tubular Frame', Suspension:'Front Hydraulic Telescopic with Double Shocker with Dual Tube', 'Brake System':'Dual Disc', 'Tyre Size':'Front & Rear 12 Inch', Weight:'110 kg' }
+  },
+  skylark_super: {
+    name: 'Skylark Super', img: 'Scooty/skylark_super.png',
+    electrical: { Speedometer:'Digital Colour', Battery:'Lead Acid / Lithium', Charger:'Micro Charger with Auto Cutoff', 'Charging Time':'Lead: 6.65 Hrs, Lithium: 3.5 Hrs', Headlight:'LED Headlamp' },
+    features: { 'Anti-Theft Alarm':'✓', 'Central Locking':'✓', 'Parking Switch':'✓', 'Reverse Gear':'✓', 'Side Stand Sensor':'✓', 'Cruise Controller':'✓' },
+    motor: { Motor:'Highly Insulated BLDC Motor', Gradient:'15°', Frame:'High Strength Tubular Frame', Suspension:'Front Hydraulic Telescopic Rear, Double Shocker Dual Tube', 'Brake System':'Dual Disc', 'Tyre Size':'Front 10 / Rear 18 Inch', Weight:'110 kg' }
+  },
+  swallow: {
+    name: 'Swallow', img: 'Scooty/swallow.png',
+    electrical: { Speedometer:'Digital Colour', Battery:'Lead Acid / Lithium', Charger:'Micro Charger with Auto Cutoff', 'Charging Time':'Lead Acid: 6–5 Hrs, Lithium: 3–5 Hrs', Headlight:'LED Headlamp' },
+    features: { 'Anti-Theft Alarm':'✓', 'Central Locking':'✓', 'Parking Switch':'✓', 'Reverse Gear':'✓', 'Side Stand Sensor':'✓', 'Cruise Controller':'✓' },
+    motor: { Motor:'Highly Insulated BLDC Motor', Gradient:'15°', Frame:'High Strength Tubular Frame', Suspension:'Front Hydraulic Telescopic with Double Shocker Dual Tube', 'Brake System':'Dual Disc', 'Tyre Size':'Front & Rear 10 Inch', Weight:'110 kg' }
+  },
+  canary: {
+    name: 'Canary', img: 'Scooty/canary..png',
+    electrical: { Speedometer:'Digital Colour', Battery:'Lead Acid / Lithium', Charger:'Micro Charger with Auto Cutoff', 'Charging Time':'Lead Acid: 6.5 Hrs, Lithium: 3.5 Hrs', Headlight:'LED Headlamp' },
+    features: { 'Anti-Theft Alarm':'✓', 'Central Locking':'✓', 'Parking Switch':'✓', 'Reverse Gear':'✓', 'Side Stand Sensor':'✓', 'Cruise Controller':'✓' },
+    motor: { Motor:'Highly Insulated BLDC Motor', Gradient:'15°', Frame:'High Strength Tubular Frame', Suspension:'Front Hydraulic Telescopic with Double Shocker Dual Tube', 'Brake System':'Dual Disc', 'Tyre Size':'Front & Rear 10 Inch', Weight:'110 kg' }
+  },
+  mini: {
+    name: 'Mini', img: 'Scooty/mini.png',
+    electrical: { Speedometer:'Digital Colour', Battery:'Lead Acid / Lithium', Charger:'Micro Charger with Auto Cutoff', 'Charging Time':'Lead: 6–8.5 Hrs, Lithium: 3.5 Hrs', Headlight:'LED Headlamp' },
+    features: { 'Anti-Theft Alarm':'✓', 'Central Locking':'✓', 'Parking Switch':'✓', 'Reverse Gear':'✓', 'Side Stand':'✓', 'Cruise Controller':'✓' },
+    motor: { Motor:'Highly Insulated BLDC Motor', Gradient:'15°', Frame:'High Strength Tubular Frame', Suspension:'Front Hydraulic Telescopic Rear, Double Shocker with Dual Tube', 'Brake System':'Dual Disc', 'Tyre Size':'Front & Rear 10 Inch', Weight:'110 kg' }
+  },
+  loader: {
+    name: 'Loader', img: 'Scooty/loader1.png',
+    electrical: { Speedometer:'Digital Colour', Battery:'Lead Acid / Lithium', Charger:'Micro Charger with Auto Cutoff', 'Charging Time':'Lead: 6–8 Hrs, Lithium: 3–5 Hrs', Headlight:'LED Headlamp' },
+    features: { 'Anti-Theft Alarm':'✓', 'Central Locking':'✓', 'Parking Switch':'✓', 'Reverse Gear':'✓', 'Side Stand Sensor':'✓', 'USB Charger':'✓' },
+    motor: { Motor:'Highly Insulated BLDC Motor', Gradient:'15°', Chassis:'High Strength Tubular Frame', Suspension:'Front Hydraulic Telescopic, Double Shocker Dual Tube', 'Brake System':'Disc / Disc / Disc', Tyres:'Tubeless', 'Tyre Size':'Front & Rear 10 Inch', Weight:'130 kg (Payload Capable)' }
+  }
+};
+
+function openModal(key) {
+  const d = specData[key];
+  if (!d) return;
+  document.getElementById('modalTitle').textContent = d.name;
+  document.getElementById('modalBody').innerHTML = `
+    <div class="modal-img">
+      <img src="${d.img}" alt="${d.name}" onerror="this.src='';this.alt='Image not found'">
+    </div>
+    <div class="modal-specs-wrap">
+      <div class="spec-group">
+        <div class="spec-group-title">Electrical</div>
+        ${Object.entries(d.electrical).map(([k,v])=>`<div class="spec-row"><span class="spec-key">${k}</span><span class="spec-val">${v}</span></div>`).join('')}
+      </div>
+      <div class="spec-group">
+        <div class="spec-group-title">Key Features</div>
+        ${Object.entries(d.features).map(([k,v])=>`<div class="spec-row"><span class="spec-key">${k}</span><span class="spec-val" style="color:#16a34a">${v}</span></div>`).join('')}
+      </div>
+      <div class="spec-group">
+        <div class="spec-group-title">Motor / Chassis / Other</div>
+        ${Object.entries(d.motor).map(([k,v])=>`<div class="spec-row"><span class="spec-key">${k}</span><span class="spec-val">${v}</span></div>`).join('')}
+      </div>
+    </div>
+    <div class="modal-icons">
+      <div class="micon"><span class="micon-sym">🛞</span>Alloy Wheels</div>
+      <div class="micon"><span class="micon-sym">🛑</span>Dual Disc Brake</div>
+      <div class="micon"><span class="micon-sym">⚡</span>Quick Charge</div>
+      <div class="micon"><span class="micon-sym">🔩</span>Hydraulic Suspension</div>
+      <div class="micon"><span class="micon-sym">💡</span>Bright Headlamp</div>
+      <div class="micon"><span class="micon-sym">🔌</span>USB Charging Port</div>
+      <div class="micon"><span class="micon-sym">📊</span>Digital Meter</div>
+      <div class="micon"><span class="micon-sym">🔋</span>Efficient Batteries</div>
+    </div>
+  `;
+  document.getElementById('specModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('specModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// ── FORM SUBMIT WITH EMAILJS ──
+function submitForm() {
+  const btn = document.getElementById('submitBtn');
+  const name    = document.getElementById('f_name').value.trim();
+  const phone   = document.getElementById('f_phone').value.trim();
+  const email   = document.getElementById('f_email').value.trim();
+  const city    = document.getElementById('f_city').value.trim();
+  const vehicle = document.getElementById('f_vehicle').value;
+  const type    = document.getElementById('f_type').value;
+  const message = document.getElementById('f_message').value.trim();
+
+  if (!name)  { showToast('Please enter your full name', 'error'); return; }
+  if (!phone) { showToast('Please enter your phone number', 'error'); return; }
+  if (!city)  { showToast('Please enter your city', 'error'); return; }
+
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+
+  const templateParams = {
+    to_email:     'LaxTechmotors@gmail.com',
+    from_name:    name,
+    from_phone:   phone,
+    from_email:   email || 'Not provided',
+    from_city:    city,
+    vehicle:      vehicle || 'Not specified',
+    enquiry_type: type,
+    message:      message || 'No additional message',
+    sent_at:      new Date().toLocaleString('en-IN', {timeZone:'Asia/Kolkata'})
+  };
+
+  emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+    .then(() => {
+      showToast('Enquiry sent! We will call you within 24 hours.', 'success');
+      btn.textContent = '✅ Enquiry Sent!';
+      btn.style.background = 'linear-gradient(135deg,#16a34a,#15803d)';
+      // Clear form
+      ['f_name','f_phone','f_email','f_city','f_message'].forEach(id => document.getElementById(id).value = '');
+      document.getElementById('f_vehicle').value = '';
+      setTimeout(() => {
+        btn.textContent = 'Send Enquiry →';
+        btn.style.background = '';
+        btn.disabled = false;
+      }, 5000);
+    })
+    .catch(err => {
+      console.error('EmailJS error:', err);
+      showToast('Could not send. Please call us directly or try again.', 'error');
+      btn.textContent = 'Send Enquiry →';
+      btn.disabled = false;
+    });
+}
+</script>
+</body>
+</html>
